@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Step2
 {
     int result = 0;
-    List<Integer> arrayList = new ArrayList<Integer>();
+    private List<Integer> arrayList = new ArrayList<Integer>();
 
     public int calculate(char operator, int num1 , int num2)
     {
@@ -33,5 +33,13 @@ public class Step2
         arrayList.add(result);
         return result;
     }
+    public List<Integer> getArrayList() {
+        return arrayList;
+    }
+    public void setArrayList(List<Integer> arrayList) {
+        this.arrayList = arrayList;
+    }
+
+
 
 }

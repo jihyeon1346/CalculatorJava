@@ -63,13 +63,31 @@ public class Step1 {    public static void main(String[] args) {
         int result = calculator.calculate(operator, num1, num2);
 
         System.out.println(num1 + " " + operator + " " + num2 + " = " + result);    //결과 값
-        System.out.println("계산을 종료 하시려면 exit를 입력해주세요");
+        System.out.println("계산을 종료 하시려면 exit를 계산결과를 확인하려면 list를 입력해주세요");
         exit = scanner.nextLine();
+
         if (exit.equals("exit"))
         {
             System.out.println("계산을 종료합니다.");
             System.exit(0);
-        } else
+        }
+        else if (exit.equals("list"))
+        {
+            if (calculator.getArrayList().size() == 0)
+            {
+                System.out.println("이력이 없습니다.");
+            }
+            else
+            {
+                for (int res : calculator.getArrayList())
+                {
+                   System.out.println(res);
+                }
+                System.out.println("1. 돌아가기");
+                System.out.println("2. 이력 삭제");
+            }
+        }
+        else
         {
             System.out.println("계산을 이어서 진행합니다.");
         }
