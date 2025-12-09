@@ -36,7 +36,7 @@ public class Step3_1 {
             OperatorType operator1;
 
             while (true) {
-                System.out.print("연산자를 입력하세요 (+, -, *, /) : ");
+                System.out.print("연산자를 입력하세요 (+, -, *, /, %) : ");
                 char inputOp = scanner.next().charAt(0);
                 scanner.nextLine();
 

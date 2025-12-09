@@ -28,6 +28,17 @@ public enum OperatorType {
             }
             return num1 / num2;
         }
+    },
+    MODULO('%') {
+        @Override
+        public int calculate(int num1, int num2) {
+            if (num2 == 0) {
+                System.out.println("0으로 나눌 수 없습니다.");
+                return 0;
+            }
+            return num1 % num2;
+        }
+
     };
     private final char OP;
 
