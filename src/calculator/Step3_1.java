@@ -12,7 +12,7 @@ public class Step3_1 {
         String exit;            //계산종료입력값
 
         Scanner scanner = new Scanner(System.in);   //인스턴스 생성
-        Step2 calculator = new Step2();             //인스턴스 생성
+        Step3_2 calculator = new Step3_2();             //인스턴스 생성
 
         while (true)//계산 반복을 위해 추가
         {
@@ -33,17 +33,20 @@ public class Step3_1 {
 
 
             }
+            OperatorType operator1;
 
-            while (true)
-            {
+            while (true) {
                 System.out.print("연산자를 입력하세요 (+, -, *, /) : ");
-                operator = scanner.next().charAt(0);
+                char inputOp = scanner.next().charAt(0);
                 scanner.nextLine();
 
-                if (operator == '+' || operator == '-' || operator == '*' || operator == '/')   //지정해놓은 연산자만 입력받기
+                operator1 = OperatorType.fromOP(inputOp);
+
+                if (operator1 != null) {
                     break;
-                else
+                } else {
                     System.out.println("지원하지 않는 연산자입니다. 다시 입력하세요.");
+                }
             }
             while (true)
             {
@@ -62,9 +65,9 @@ public class Step3_1 {
             }
 
 
-            int result = calculator.calculate(operator, num1, num2);    //result값에 연산결과 넣기
+            int result = calculator.calculate(operator1, num1, num2);
+            System.out.println(num1 + " " + operator1.getOP() + " " + num2 + " = " + result);    //result값에 연산결과 넣기
 
-            System.out.println(num1 + " " + operator + " " + num2 + " = " + result);    //결과 값
             System.out.println("계산을 종료 하시려면 exit를 계산결과를 확인하려면 list를 입력해주세요");
             exit = scanner.nextLine();
 

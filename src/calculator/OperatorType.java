@@ -43,5 +43,15 @@ public enum OperatorType {
 
     public abstract int calculate(int num1, int num2);
 
+    // 문자로 enum 찾기
+    public static OperatorType fromOP(char op) {
+        for (OperatorType operator : values()) {
+            if (operator.OP == op) {
+                return operator;
+            }
+        }
+        return null;  // 지원하지 않는 연산자
 
+
+    }
 }
