@@ -1,45 +1,47 @@
 package calculator;
 
-public enum OperatorType {
+public enum OperatorType  {
     ADD('+') {
         @Override
-        public int calculate(int num1, int num2) {
-            return num1 + num2;
+        public <T extends Number> double calculate(T num1, T num2) {
+            return num1.doubleValue() + num2.doubleValue();
         }
     },
     SUBTRACT('-') {
         @Override
-        public int calculate(int num1, int num2) {
-            return num1 - num2;
+        public <T extends Number> double calculate(T num1, T num2) {
+            return num1.doubleValue() - num2.doubleValue();
         }
     },
     MULTIPLY('*') {
         @Override
-        public int calculate(int num1, int num2) {
-            return num1 * num2;
+        public <T extends Number> double calculate(T num1, T num2) {
+            return num1.doubleValue() * num2.doubleValue();
         }
     },
     DIVIDE('/') {
         @Override
-        public int calculate(int num1, int num2) {
-            if (num2 == 0) {
+        public <T extends Number> double calculate(T num1, T num2) {
+            if (num2.doubleValue() == 0) {
                 System.out.println("0으로 나눌 수 없습니다.");
                 return 0;
             }
-            return num1 / num2;
+            return num1.doubleValue() / num2.doubleValue();
         }
     },
     MODULO('%') {
         @Override
-        public int calculate(int num1, int num2) {
-            if (num2 == 0) {
+        public <T extends Number> double calculate(T num1, T num2) {
+            if (num2.doubleValue() == 0) {
                 System.out.println("0으로 나눌 수 없습니다.");
                 return 0;
             }
-            return num1 % num2;
+            return num1.doubleValue() % num2.doubleValue();
         }
 
     };
+
+
     private final char OP;
 
     OperatorType(char OP) //캡슐화
@@ -52,8 +54,8 @@ public enum OperatorType {
     }
 
 
-    public abstract int calculate(int num1, int num2);
-
+    //public abstract int calculate(int num1, int num2); 수정
+    public abstract <T extends Number> double calculate(T num1, T num2);
     // 문자로 enum 찾기
     public static OperatorType fromOP(char op) {
         for (OperatorType operator : values()) {

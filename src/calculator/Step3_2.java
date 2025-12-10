@@ -3,15 +3,17 @@ package calculator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Step3_2 {
-    private List<Integer> arrayList = new ArrayList<Integer>();
+public class Step3_2 <T extends Number>
+{
 
-    public int calculate(OperatorType operator, int num1, int num2) {
-        int result = operator.calculate(num1, num2);
+    private List<Double> arrayList = new ArrayList<Double>();
+
+    public double calculate(OperatorType operator, T num1, T num2) {
+        double result = operator.calculate(num1, num2);
         arrayList.add(result);
         return result;
     }
-    public List<Integer> getArrayList() {
+    public List<Double> getArrayList() {
 
         return arrayList;
     }
